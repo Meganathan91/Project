@@ -1,6 +1,10 @@
 package mainmethod;
+
+import businesslogic.AppointmentBO;
 import entity.*;
+
 import java.util.*;
+
 public class Report {
 
     private static Map<Long, Hospital> hospitalDetails;
@@ -23,7 +27,7 @@ public class Report {
     private static Patient patientSomu;
     private static Patient patientSelvi;
 
-    private static Map<Long, Appointment> appointmentDetails = null;
+    private static Map<Long, Appointment> appointmentDetails;
     private static Appointment appointmentOne;
     private static Appointment appointmentTwo;
     private static Appointment appointmentThree;
@@ -38,7 +42,6 @@ public class Report {
     private static Appointment appointmentTwelve;
     private static Appointment appointmentThirteen;
     private static Appointment appointmentFourteen;
-    private static Appointment appointmentFifteen;
 
     private static Map<Long, Medicine> medicineDetails;
     private static Medicine medicineForCardiologist;
@@ -57,10 +60,7 @@ public class Report {
     private static List<Medicine> medicineList;
     private static Medicine medicine;
 
-    static Long patientId;
-    static Long doctorId;
-
-    static String purposeOfVisit;
+    static Date d = new Date();
 
     static {
 
@@ -196,7 +196,7 @@ public class Report {
         appointmentOne.setPurposeOfVisit("HeartPain");
         appointmentOne.setBp(120.5);
         appointmentOne.setTemperature(90.5);
-        appointmentOne.setIsFirstVisit(true);
+        appointmentOne.setIsFirstVisit(false);
 
         appointmentTwo = new Appointment();
         appointmentTwo.setAppointmentId(2l);
@@ -206,7 +206,7 @@ public class Report {
         appointmentTwo.setPurposeOfVisit("BonesPain");
         appointmentTwo.setBp(140.7);
         appointmentTwo.setTemperature(89.1);
-        appointmentTwo.setIsFirstVisit(true);
+        appointmentTwo.setIsFirstVisit(false);
 
         appointmentThree = new Appointment();
         appointmentThree.setAppointmentId(3l);
@@ -216,7 +216,7 @@ public class Report {
         appointmentThree.setPurposeOfVisit("TeethPain");
         appointmentThree.setBp(135.3);
         appointmentThree.setTemperature(81.4);
-        appointmentThree.setIsFirstVisit(true);
+        appointmentThree.setIsFirstVisit(false);
 
         appointmentFour = new Appointment();
         appointmentFour.setAppointmentId(4l);
@@ -226,7 +226,7 @@ public class Report {
         appointmentFour.setPurposeOfVisit("Headaches");
         appointmentFour.setBp(154.4);
         appointmentFour.setTemperature(79.5);
-        appointmentFour.setIsFirstVisit(true);
+        appointmentFour.setIsFirstVisit(false);
 
         appointmentFive = new Appointment();
         appointmentFive.setAppointmentId(5l);
@@ -328,16 +328,6 @@ public class Report {
         appointmentFourteen.setTemperature(79.5);
         appointmentFourteen.setIsFirstVisit(false);
 
-        appointmentFifteen = new Appointment();
-        appointmentFifteen.setAppointmentId(15l);
-        appointmentFifteen.setDoctor(doctorDetails.get(5l));
-        appointmentFifteen.setPatient(patientDetails.get(5l));
-        appointmentFifteen.setDateOfVisit(new Date(2021 / 03 / 19));
-        appointmentFifteen.setPurposeOfVisit("LungCancer");
-        appointmentFifteen.setBp(120.5);
-        appointmentFifteen.setTemperature(90.5);
-        appointmentFifteen.setIsFirstVisit(false);
-
         appointmentDetails = new HashMap<>();
         appointmentDetails.put(appointmentOne.getAppointmentId(), appointmentOne);
         appointmentDetails.put(appointmentTwo.getAppointmentId(), appointmentTwo);
@@ -353,7 +343,6 @@ public class Report {
         appointmentDetails.put(appointmentTwelve.getAppointmentId(), appointmentTwelve);
         appointmentDetails.put(appointmentThirteen.getAppointmentId(), appointmentThirteen);
         appointmentDetails.put(appointmentFourteen.getAppointmentId(), appointmentFourteen);
-        appointmentDetails.put(appointmentFifteen.getAppointmentId(), appointmentFifteen);
 
         Date d9 = new Date(2723223232l);
         medicineForCardiologist = new Medicine();
@@ -468,6 +457,12 @@ public class Report {
 
         populateVisitInformation();
 
+        AppointmentBO appointmentBO = new AppointmentBO();
+        try {
+            appointmentBO.createAppointment(21l, patientDetails, 5l, doctorDetails, d, "bonepain", appointmentDetails);
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
-
