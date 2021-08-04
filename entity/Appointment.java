@@ -74,4 +74,18 @@ public class Appointment {
     public void setIsFirstVisit(Boolean firstVisit) {
         isFirstVisit = firstVisit;
     }
+
+    @Override
+    public String toString() {
+        return "Appointment{" +
+                "appointmentId=" + appointmentId +
+                ", patient=" + patient +
+                ", dateOfVisit=" + dateOfVisit +
+                ", purposeOfVisit='" + purposeOfVisit + '\'' +
+                ", isFirstVisit=" + isFirstVisit +
+                ", bp=" + bp +
+                ", temperature=" + temperature +
+                ", doctor=" + doctor +
+                '}';
+    }
 }

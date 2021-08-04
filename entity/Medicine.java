@@ -43,4 +43,15 @@ public class Medicine {
     public void setPurposeOfMedicine(String purposeOfMedicine) {
         this.purposeOfMedicine = purposeOfMedicine;
     }
+
+    @Override
+    public String toString() {
+        return "Medicine{" +
+                "medicineId=" + medicineId +
+                ", medicineName='" + medicineName + '\'' +
+                ", expiryDate=" + expiryDate +
+                ", batchNumber='" + batchNumber + '\'' +
+                ", purposeOfMedicine='" + purposeOfMedicine + '\'' +
+                '}';
+    }
 }

@@ -48,5 +48,16 @@ public class VisitLogInformation {
     public void setAppointment(Appointment appointment) {
         this.appointment = appointment;
     }
+
+    @Override
+    public String toString() {
+        return "VisitLogInformation{" +
+                "visitId=" + visitId +
+                ", appointment=" + appointment +
+                ", doctorRecommendation='" + doctorRecommendation + '\'' +
+                ", followUpNeed=" + followUpNeed +
+                ", listOfMedicine=" + listOfMedicine +
+                '}';
+    }
 }
 

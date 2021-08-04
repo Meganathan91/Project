@@ -56,4 +56,16 @@ public class Patient {
     public void setPatientType(String patientType) {
         this.patientType = patientType;
     }
+
+    @Override
+    public String toString() {
+        return "Patient{" +
+                "patientId=" + patientId +
+                ", patientName='" + patientName + '\'' +
+                ", dob=" + dob +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", address='" + address + '\'' +
+                ", patientType='" + patientType + '\'' +
+                '}';
+    }
 }

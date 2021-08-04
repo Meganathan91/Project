@@ -29,5 +29,12 @@ public class Hospital {
         this.hospitalLocation = hospitalLocation;
     }
 
-
+    @Override
+    public String toString() {
+        return "Hospital{" +
+                "hospitalId=" + hospitalId +
+                ", hospitalName='" + hospitalName + '\'' +
+                ", hospitalLocation='" + hospitalLocation + '\'' +
+                '}';
+    }
 }
