@@ -458,11 +458,8 @@ public class Report {
         populateVisitInformation();
 
         AppointmentBO appointmentBO = new AppointmentBO();
-        try {
-            appointmentBO.createAppointment(21l, patientDetails, 5l, doctorDetails, d, "bonepain", appointmentDetails);
+        Appointment appointment = appointmentBO.createAppointment(21l, patientDetails, 5l, doctorDetails, d, "bonepain", appointmentDetails);
+        System.out.println(appointment);
 
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
     }
 }
