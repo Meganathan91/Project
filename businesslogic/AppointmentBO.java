@@ -8,31 +8,36 @@ import java.util.*;
 
 public class AppointmentBO {
 
-
     public Appointment createAppointment(Long patientId, Map<Long, Patient> patientMap, Long doctorId,
                                          Map<Long, Doctor> doctorMap, Date d, String purposeOfVisit,
-                                         Map<Long, Appointment> appointmentMap) {
+                                         Map<Long, Appointment> appointmentMap) throws Exception {
+        if (patientId == null)
+            throw new Exception("Patient id is null");
 
-        Appointment newAppointment = new Appointment();
-        newAppointment.setPurposeOfVisit(purposeOfVisit);
-        newAppointment.setDoctor(doctorMap.get(doctorId));
-        newAppointment.setPatient(patientMap.get(patientId));
-
-        appointmentMap.put(newAppointment.getAppointmentId(), newAppointment);
+        Patient p = new Patient();
+        if (patientMap.containsKey(patientId)) {
+            p = patientMap.get(patientId);
+        }
+        Appointment appointment = new Appointment();
+        appointment.setAppointmentId(NewAppointmentId.getId(new ArrayList<>(appointmentMap.keySet())));
+        appointment.setDateOfVisit(d);
+        appointment.setDoctor(doctorMap.get(doctorId));
+        appointment.setPatient(p);
+        appointment.setPurposeOfVisit(purposeOfVisit);
+        appointment.setIsFirstVisit(true);
 
         Iterator<Long> itr = appointmentMap.keySet().iterator();
-        Long appointmentId = 0l;
+        Appointment app = new Appointment();
+        Long appointmentId;
         while (itr.hasNext()) {
             appointmentId = itr.next();
-            newAppointment = appointmentMap.get(appointmentId);
-            if (newAppointment.getPatient() != null && newAppointment.getPatient().getPatientId() == appointmentId) {
-                newAppointment.setIsFirstVisit(false);
-            } else {
-                newAppointment.setIsFirstVisit(true);
+            app = appointmentMap.get(appointmentId);
+            if (app.getPatient() != null && app.getPatient().getPatientId() == patientId) {
+                appointment.setIsFirstVisit(false);
+                break;
             }
         }
 
-        return newAppointment;
+        return appointment;
     }
-
 }

@@ -1,6 +1,7 @@
 package mainmethod;
 
 import businesslogic.AppointmentBO;
+import businesslogic.VisitInformation;
 import entity.*;
 
 import java.util.*;
@@ -216,7 +217,7 @@ public class Report {
         appointmentThree.setPurposeOfVisit("TeethPain");
         appointmentThree.setBp(135.3);
         appointmentThree.setTemperature(81.4);
-        appointmentThree.setIsFirstVisit(false);
+        appointmentThree.setIsFirstVisit(true);
 
         appointmentFour = new Appointment();
         appointmentFour.setAppointmentId(4l);
@@ -333,7 +334,7 @@ public class Report {
         appointmentDetails.put(appointmentTwo.getAppointmentId(), appointmentTwo);
         appointmentDetails.put(appointmentThree.getAppointmentId(), appointmentThree);
         appointmentDetails.put(appointmentFour.getAppointmentId(), appointmentFour);
-        appointmentDetails.put(appointmentFive.getAppointmentId(), appointmentFive);
+       // appointmentDetails.put(appointmentFive.getAppointmentId(), appointmentFive);
         appointmentDetails.put(appointmentSix.getAppointmentId(), appointmentSix);
         appointmentDetails.put(appointmentSeven.getAppointmentId(), appointmentSeven);
         appointmentDetails.put(appointmentEight.getAppointmentId(), appointmentEight);
@@ -458,8 +459,17 @@ public class Report {
         populateVisitInformation();
 
         AppointmentBO appointmentBO = new AppointmentBO();
-        Appointment appointment = appointmentBO.createAppointment(21l, patientDetails, 5l, doctorDetails, d, "bonepain", appointmentDetails);
-        System.out.println(appointment);
+        try {
+            Appointment appointment = appointmentBO.createAppointment(5l, patientDetails, 5l, doctorDetails,
+                    Calendar.getInstance().getTime(), "Bone Pain", appointmentDetails);
 
+            System.out.println(" New Appointment Details : " + appointment);
+        } catch (Exception e) {
+            System.out.println(" Patient id is null: "+e.getMessage());
+        }
+
+        VisitInformation visitInformation = new VisitInformation();
+        visitInformation.checkPatientNoOfFVisit(2l, appointmentDetails, visitDetails, medicineList,
+                                                "TeethPain", true);
     }
 }
