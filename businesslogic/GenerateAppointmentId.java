@@ -3,7 +3,7 @@ package businesslogic;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class NewAppointmentId {
+public class GenerateAppointmentId {
 
     public static Long getId(ArrayList<Long> longs) {
         Collections.sort(longs);

@@ -19,7 +19,7 @@ public class AppointmentBO {
             p = patientMap.get(patientId);
         }
         Appointment appointment = new Appointment();
-        appointment.setAppointmentId(NewAppointmentId.getId(new ArrayList<>(appointmentMap.keySet())));
+        appointment.setAppointmentId(GenerateAppointmentId.getId(new ArrayList<>(appointmentMap.keySet())));
         appointment.setDateOfVisit(d);
         appointment.setDoctor(doctorMap.get(doctorId));
         appointment.setPatient(p);
