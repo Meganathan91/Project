@@ -3,6 +3,7 @@ package businesslogic;
 import entity.Appointment;
 import entity.Doctor;
 import entity.Patient;
+import generateid.GenerateAppointmentId;
 
 import java.util.*;
 

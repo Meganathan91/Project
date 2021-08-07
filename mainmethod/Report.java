@@ -2,7 +2,7 @@ package mainmethod;
 
 import businesslogic.AppointmentBO;
 import businesslogic.InPatientBO;
-import businesslogic.VisitInformation;
+import businesslogic.VisitInformationBO;
 import entity.*;
 
 import java.util.*;
@@ -413,88 +413,45 @@ public class Report {
         medicineDetails.put(medicineForNeurologist.getMedicineId(), medicineForNeurologist);
         medicineDetails.put(medicineForPulmonologist.getMedicineId(), medicineForPulmonologist);
 
-
-        inPatientSelvam = new InPatient();
-        inPatientSelvam.setPatientId(1l);
-        inPatientSelvam.setIpIdentificationNumber(1l);
-
-        inPatientRagu = new InPatient();
-        patientRagu.setPatientId(2l);
-        inPatientRagu.setIpIdentificationNumber(2l);
-
-        inPatientVimal = new InPatient();
-        patientVimal.setPatientId(3l);
-        inPatientVimal.setIpIdentificationNumber(3l);
-
-        inPatientAnu = new InPatient();
-        patientAnu.setPatientId(4l);
-        inPatientAnu.setIpIdentificationNumber(4l);
-
-        inPatientMohan = new InPatient();
-        inPatientMohan.setPatientId(5l);
-        inPatientMohan.setIpIdentificationNumber(5l);
-
-        inPatientRajini = new InPatient();
-        inPatientRajini.setPatientId(6l);
-        inPatientRajini.setIpIdentificationNumber(6l);
-
-        inPatientSomu = new InPatient();
-        inPatientSomu.setPatientId(7l);
-        inPatientSomu.setIpIdentificationNumber(7l);
-
-        inPatientSelvi = new InPatient();
-        inPatientSelvi.setPatientId(8l);
-        inPatientSelvi.setIpIdentificationNumber(8l);
-
-        inPatientDetails = new HashMap<>();
-        inPatientDetails.put(inPatientSelvam.getPatientId(), inPatientSelvam);
-        inPatientDetails.put(inPatientRagu.getPatientId(), inPatientRagu);
-        inPatientDetails.put(inPatientVimal.getPatientId(), inPatientVimal);
-        inPatientDetails.put(inPatientAnu.getPatientId(), inPatientAnu);
-        inPatientDetails.put(inPatientMohan.getPatientId(), inPatientMohan);
-        inPatientDetails.put(inPatientRajini.getPatientId(), inPatientRajini);
-        inPatientDetails.put(inPatientSomu.getPatientId(), inPatientSomu);
-        inPatientDetails.put(inPatientSelvi.getPatientId(), inPatientSelvi);
-
         bedOne = new Bed();
         bedOne.setBedId(1l);
-        bedOne.setBedType("Simple Bed");
-        bedOne.setRoomName("Patient Room");
+        bedOne.setBedType("Manual Bed");
+        bedOne.setRoomName("A");
 
         bedTwo = new Bed();
         bedTwo.setBedId(2l);
-        bedTwo.setBedType("Simple Bed");
-        bedTwo.setRoomName("Patient Room");
+        bedTwo.setBedType("Manual Bed");
+        bedTwo.setRoomName("B");
 
         bedThree = new Bed();
         bedThree.setBedId(3l);
-        bedThree.setBedType("Simple Bed");
-        bedThree.setRoomName("Patient Room");
+        bedThree.setBedType("Manual Bed");
+        bedThree.setRoomName("C");
 
         bedFour = new Bed();
         bedFour.setBedId(4l);
-        bedFour.setBedType("Simple Bed");
-        bedFour.setRoomName("Patient Room");
+        bedFour.setBedType("Manual Bed");
+        bedFour.setRoomName("D");
 
         bedFive = new Bed();
         bedFive.setBedId(5l);
-        bedFive.setBedType("Simple Bed");
-        bedFive.setRoomName("Patient Room");
+        bedFive.setBedType("Manual Bed");
+        bedFive.setRoomName("E");
 
         bedSix = new Bed();
         bedSix.setBedId(6l);
-        bedSix.setBedType("Simple Bed");
-        bedSix.setRoomName("Patient Room");
+        bedSix.setBedType("Manual Bed");
+        bedSix.setRoomName("F");
 
         bedSeven = new Bed();
         bedSeven.setBedId(7l);
-        bedSeven.setBedType("Simple Bed");
-        bedSeven.setRoomName("Patient Room");
+        bedSeven.setBedType("Manual Bed");
+        bedSeven.setRoomName("G");
 
         bedEight = new Bed();
         bedEight.setBedId(8l);
-        bedEight.setBedType("Simple Bed");
-        bedEight.setRoomName("Patient Room");
+        bedEight.setBedType("Manual Bed");
+        bedEight.setRoomName("H");
 
         bedDetails = new HashMap<>();
         bedDetails.put(bedOne.getBedId(), bedOne);
@@ -506,6 +463,56 @@ public class Report {
         bedDetails.put(bedSeven.getBedId(), bedSeven);
         bedDetails.put(bedEight.getBedId(), bedEight);
 
+        inPatientSelvam = new InPatient();
+        inPatientSelvam.setPatientId(1l);
+        inPatientSelvam.setIpIdentificationNumber(1l);
+        inPatientSelvam.setBed(bedDetails.get(1l));
+
+        inPatientRagu = new InPatient();
+        inPatientRagu.setPatientId(2l);
+        inPatientRagu.setIpIdentificationNumber(2l);
+        inPatientRagu.setBed(bedDetails.get(2l));
+
+
+        inPatientVimal = new InPatient();
+        inPatientVimal.setPatientId(3l);
+        inPatientVimal.setIpIdentificationNumber(3l);
+        inPatientVimal.setBed(bedDetails.get(3l));
+
+        inPatientAnu = new InPatient();
+        inPatientAnu.setPatientId(4l);
+        inPatientAnu.setIpIdentificationNumber(4l);
+        inPatientAnu.setBed(bedDetails.get(4l));
+
+        inPatientMohan = new InPatient();
+        inPatientMohan.setPatientId(5l);
+        inPatientMohan.setIpIdentificationNumber(5l);
+        inPatientMohan.setBed(bedDetails.get(5l));
+
+        inPatientRajini = new InPatient();
+        inPatientRajini.setPatientId(6l);
+        inPatientRajini.setIpIdentificationNumber(6l);
+        inPatientRajini.setBed(bedDetails.get(6l));
+
+        inPatientSomu = new InPatient();
+        inPatientSomu.setPatientId(7l);
+        inPatientSomu.setIpIdentificationNumber(7l);
+        inPatientSomu.setBed(bedDetails.get(7l));
+
+        inPatientSelvi = new InPatient();
+        inPatientSelvi.setPatientId(8l);
+        inPatientSelvi.setIpIdentificationNumber(8l);
+        inPatientSelvi.setBed(bedDetails.get(8l));
+
+        inPatientDetails = new HashMap<>();
+        inPatientDetails.put(inPatientSelvam.getPatientId(), inPatientSelvam);
+        inPatientDetails.put(inPatientRagu.getPatientId(), inPatientRagu);
+        inPatientDetails.put(inPatientVimal.getPatientId(), inPatientVimal);
+        inPatientDetails.put(inPatientAnu.getPatientId(), inPatientAnu);
+        inPatientDetails.put(inPatientMohan.getPatientId(), inPatientMohan);
+        inPatientDetails.put(inPatientRajini.getPatientId(), inPatientRajini);
+        inPatientDetails.put(inPatientSomu.getPatientId(), inPatientSomu);
+        inPatientDetails.put(inPatientSelvi.getPatientId(), inPatientSelvi);
 
     }
 
@@ -576,14 +583,14 @@ public class Report {
         AppointmentBO appointmentBO = new AppointmentBO();
         Appointment appointment;
         try {
-             appointment = appointmentBO.createAppointment(5l, patientDetails, 5l, doctorDetails,
+            appointment = appointmentBO.createAppointment(5l, patientDetails, 5l, doctorDetails,
                     Calendar.getInstance().getTime(), "Bone Pain", appointmentDetails);
             appointmentDetails.put(appointment.getAppointmentId(), appointment);
         } catch (Exception e) {
-            System.out.println(" Patient id is null: "+e.getMessage());
+            System.out.println(" Patient id is null: " + e.getMessage());
         }
 
-        VisitInformation visitInformation = new VisitInformation();
+        VisitInformationBO visitInformation = new VisitInformationBO();
         try {
             Patient patient = visitInformation.checkPatientNoOfFVisit(2l, appointmentDetails, visitDetails, medicineList,
                     "TeethPain", true);
@@ -594,9 +601,10 @@ public class Report {
 
         InPatientBO inPatientBO = new InPatientBO();
         try {
-            inPatientBO.allocateBedForINPatient(2l, inPatientDetails, bedDetails, "Simple Bed", "Patient Room");
+            inPatientBO.allocateBedForINPatient(2l, inPatientDetails, bedDetails, "Simple Bed",
+                    "A");
 
-        } catch (Exception e ) {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }

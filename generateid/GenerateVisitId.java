@@ -1,4 +1,4 @@
-package businesslogic;
+package generateid;
 
 import java.util.*;
 

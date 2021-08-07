@@ -4,13 +4,14 @@ import entity.Appointment;
 import entity.Medicine;
 import entity.Patient;
 import entity.VisitLogInformation;
+import generateid.GenerateVisitId;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-public class VisitInformation {
+public class VisitInformationBO {
 
     public Patient checkPatientNoOfFVisit(Long appointmentId, Map<Long, Appointment> appointmentMap,
                                                       Map<Long, VisitLogInformation> visitDetails,
@@ -51,7 +52,6 @@ public class VisitInformation {
         information.setAppointment(appointment);
 
         Boolean status = checkPatientType(visitDetails, patient);
-
         visitDetails.put(information.getVisitId(), information);
 
         return patient;

@@ -2,40 +2,36 @@ package businesslogic;
 
 import entity.Bed;
 import entity.InPatient;
-
 import java.util.Map;
 
 public class InPatientBO {
 
-    public void allocateBedForINPatient(Long inPatientId, Map<Long, InPatient> inPatientDetails,
-                                        Map<Long, Bed> bedDetails, String simpleBed, String patientRoom) throws Exception {
+    public void allocateBedForINPatient(Long patientId, Map<Long, InPatient> inPatientDetails,
+                                        Map<Long, Bed> bedDetails, String bedType, String roomName) throws Exception {
 
-        if (inPatientId == null) {
+        System.out.println("hi");
+
+        if (patientId == null) {
             throw new Exception("InValid InPatient Id : ");
         }
         if (inPatientDetails.isEmpty()) {
             throw new Exception("InPatient Details is Empty : ");
         }
         if (bedDetails.isEmpty()) {
-            throw new Exception("Bed Is Not Available : ");
+            throw new Exception("BedDetails Is Empty : ");
         }
 
-        if (simpleBed == null) {
-            throw new Exception("given value is null");
+        if (bedType == null) {
+            throw new Exception("Bed Is Not Available : ");
         }
-        if (patientRoom == null) {
-            throw new Exception("given value is null");
+        if (roomName == null) {
+            throw new Exception("Room Is Not Available : ");
         }
 
         InPatient inPatient = null;
-        if (inPatientDetails.containsKey(inPatientId)) {
-             inPatient = inPatientDetails.get(inPatientId);
+        if (inPatientDetails.containsKey(patientId)) {
+            inPatient = inPatientDetails.get(patientId);
+            System.out.println(inPatient);
         }
-
-        inPatient.setPatientId(inPatientId);
-        //inPatient.setIpIdentificationNumber();
-
-
     }
-
 }
